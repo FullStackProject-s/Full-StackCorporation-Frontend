@@ -1,0 +1,43 @@
+@import "assets/styles/constants.scss";
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    color: $gray;
+    opacity: .8;
+    margin: 10px 0;
+}
+
+.input {
+    border-radius: 10px;
+    padding: 10px 5px 10px 10px;
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+    background-color: $dark-gray;
+    color: #000000;
+    &_password {
+        padding: 10px 40px 10px 10px;
+        width: calc(100% - 50px);
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        margin-bottom: 20px;
+        background-color: $dark-gray;
+        color: #000000;
+    }
+}
+
+.passwordInputWrapper {
+    position: relative;
+}
+
+.passwordSvgWrapper {
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    cursor: pointer;
+}

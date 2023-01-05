@@ -1,0 +1,17 @@
+@import "assets/styles/constants.scss";
+
+.formButton {
+    margin: 20px auto;
+    width: 200px;
+    padding: 13px;
+    background-color: $green;
+    border-radius: 20px;
+    color: $background;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: all .3s;
+    &:hover {
+        opacity: .6;
+    }
+}
