@@ -1,0 +1,61 @@
+@import "assets/styles/constants.scss";
+
+.header {
+    background-color: $header;
+    position: fixed;
+    width: 100%;
+    padding: 16px 0;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0px 2px 2px 0px #00000030;
+    &_content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        width: 145px;
+        display: flex;
+        align-items: center;
+        &_label {
+            font-size: 30px;
+            color: $green;
+            span {
+                color: $orange;
+            }
+        };
+    }
+}
+
+.nav {
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &_el {
+        font-size: 20px;
+        color: $gray;
+        text-transform: uppercase;
+        &:hover {
+            padding-bottom: 2px;;
+            border-bottom: 1px solid $orange;
+        }
+    }
+    .authWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 160px;
+        .auth_el {
+            color: $green;
+            font-size: 16px;
+            padding: 6px 4px;
+            border: 1px solid $green;
+            border-radius: 4px;
+            &_alt {
+                color: $orange;
+                border: 1px solid $orange;
+            }
+        }
+    }
+}
