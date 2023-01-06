@@ -5,6 +5,27 @@
     flex-direction: column;
 }
 
+.linksWrapper {
+    margin: 20px 0 40px;
+    :first-child {
+        margin-right: 30px;
+    }
+}
+
+.links {
+    color: $green;
+    opacity: .5;
+    padding-bottom: 3px;
+    font-size: 20px;
+}
+
+.active {
+    color: $green;
+    opacity: 1;
+    border-bottom: 4px solid $green;
+    border-radius: 4px;
+}
+
 .label {
     color: $gray;
     opacity: .8;
