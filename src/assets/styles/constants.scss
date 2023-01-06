@@ -1,6 +1,13 @@
-$background: #1e2025;
+$background: #1a1c21;
+$header: #1a1c21;
 $green: #20be89;
 $orange: #ff6f0f;
 $gray: #d0d1d1;
 $dark-gray: #525358;
 $blue: #211f3746;
+
+.mainContainer {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 16px;
+}

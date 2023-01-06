@@ -1,4 +1,4 @@
-// import { Layout } from 'components/common/Layout';
+import { Layout } from 'components/common/Layout';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom'
 
@@ -9,11 +9,11 @@ const App: React.FC = () => {
     <Routes>
       <Route
         path="/"
-        // element = {<Layout/>}
+        element = {<Layout/>}
       >
-        {RoutesList.map((obj, index) => (
-          <Route key={index} {...obj} />
-        ))}
+      {RoutesList.map((obj, index) => (
+        <Route key={index} {...obj} />
+      ))}
       </Route>
     </Routes>
   );
