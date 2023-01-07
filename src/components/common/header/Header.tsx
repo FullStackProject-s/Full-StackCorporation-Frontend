@@ -17,12 +17,14 @@ export const Header: React.FC = () => {
                         <h1 className = {styles.logo_label}>Gre<span>&Mi</span></h1>
                     </NavLink>
                     <nav className = {styles.nav}>
-                        <NavLink className = {styles.nav_el} to = {paths.organizationsPage}>organizations</NavLink>
-                        <div className = {styles.authWrapper}>
+                        <NavLink className = {styles.nav_el} to = {paths.organizationsPage}>Organizations</NavLink>
+                        {/* <div className = {styles.authWrapper}>
                             <NavLink className = {`${styles.nav_el} ${styles.auth_el}`} to = {paths.loginPage}>Sign In</NavLink>
                             <NavLink className = {`${styles.nav_el} ${styles.auth_el} ${styles.auth_el_alt}`} to = {paths.registrationPage}>Sign Up</NavLink>
-                        </div>
-                        {/* <Profile /> */}
+                        </div> */}
+                        <NavLink to = {paths.profilePage}>
+                            <Profile />
+                        </NavLink>
                     </nav>
                 </div>
             </div>

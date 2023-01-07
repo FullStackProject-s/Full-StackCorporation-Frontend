@@ -36,6 +36,7 @@
         font-size: 20px;
         color: $gray;
         text-transform: uppercase;
+        transition: all .2s;
         &:hover {
             padding-bottom: 2px;;
             border-bottom: 1px solid $orange;
@@ -52,6 +53,9 @@
             padding: 6px 4px;
             border: 1px solid $green;
             border-radius: 4px;
+            &:hover {
+                opacity: .7;
+            }
             &_alt {
                 color: $orange;
                 border: 1px solid $orange;
