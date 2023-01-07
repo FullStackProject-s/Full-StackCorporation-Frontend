@@ -1,0 +1,13 @@
+@import "assets/styles/constants.scss";
+
+.navBar {
+    display: flex;
+    &_el {
+        color: $gray;
+        font-size: 20px;
+        margin-right: 20px;
+    }
+    .active {
+        color: $green;
+    }
+}
