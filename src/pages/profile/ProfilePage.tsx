@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { Navbar } from 'components/pages/profile/Navbar'
+import { Navbar } from 'components/common/profileNavbar/Navbar'
+import { ProfileContent } from 'components/pages/profile/profileContent/ProfileContent';
 
 import styles from './profile.module.scss'
 
@@ -11,9 +12,7 @@ export const ProfilePage: React.FC = () => {
             <div className="mainContainer">
                 <div className = {styles.pageContent}>
                     <Navbar />
-                    <div className = {styles.profileContent}>
-
-                    </div>
+                    <ProfileContent />
                 </div>
             </div>
         </section>

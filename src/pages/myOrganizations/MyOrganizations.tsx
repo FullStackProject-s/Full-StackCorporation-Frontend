@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Navbar } from 'components/pages/profile/Navbar';
+import { Navbar } from 'components/common/profileNavbar/Navbar';
 
 import styles from './myOrganizations.module.scss'
 
