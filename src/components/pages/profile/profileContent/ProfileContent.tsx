@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import { NavLink } from 'react-router-dom';
+import { paths } from 'routing/config';
 
 import { Edit } from 'components/ui/svg/edit/Edit';
 
@@ -52,8 +54,8 @@ export const ProfileContent: React.FC = () => {
                     <li className = {styles.infoBlock_el}>
                         {
                             !isOpenEditInputs 
-                            ? <button>Change Password</button>
-                            : <button onClick = {() => setOpenEditInputs(!isOpenEditInputs)}>Apply</button>
+                            ? <NavLink to = {paths.changePasswordPage} className = {styles.button}>Change Password</NavLink>
+                            : <button className = {styles.button} onClick = {() => setOpenEditInputs(!isOpenEditInputs)}>Apply</button>
                         }
                     </li>
                 </ul>

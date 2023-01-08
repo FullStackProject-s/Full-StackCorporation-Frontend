@@ -4,5 +4,6 @@ export const paths = {
     profilePage: '/profile',
     myOrganizations: '/profile/my-organizations',
     loginPage: '/login',
-    registrationPage: '/registration'
+    registrationPage: '/registration',
+    changePasswordPage: '/change-password'
 };

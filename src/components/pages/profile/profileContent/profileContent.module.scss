@@ -86,7 +86,8 @@
 
                 }
 
-                button {
+                .button {
+                    text-decoration: none;
                     padding: 6px 10px;
                     min-width: 100px;
                     background-color: $green;
