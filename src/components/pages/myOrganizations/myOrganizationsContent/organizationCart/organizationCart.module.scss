@@ -1,0 +1,43 @@
+@import "assets/styles/constants.scss";
+
+.organizationCart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    margin: 0 20px;
+    border-bottom: 1px solid transparentize($green, .78);
+
+    &:hover {
+        background-color: transparentize($green, .78);
+    }
+
+    .leftSide, .rightSide {
+        display: flex;
+        align-items: center;
+    }
+
+    .leftSide {
+
+        img {
+            width: 40px;
+            height: 50px;
+            margin-right: 10px;
+            outline: 1px solid $green;
+            border-radius: 1px;
+        }
+    
+        p {
+            font-size: 18px;
+            color: $green
+        }
+    }
+
+    .rightSide {
+
+        p {
+            font-size: 14px;
+            color: $dark-gray;
+        }
+    }
+}

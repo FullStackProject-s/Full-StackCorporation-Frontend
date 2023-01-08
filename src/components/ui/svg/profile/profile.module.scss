@@ -1,7 +1,9 @@
 @import "assets/styles/constants.scss";
 
-svg {
-    path {
-        fill: $green;
+.root {
+    svg {
+        path {
+            fill: $green;
+        }
     }
 }
