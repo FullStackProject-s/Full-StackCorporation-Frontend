@@ -10,7 +10,7 @@ export const MyOrganizationsContent: React.FC = () => {
     return (
         <div className = {styles.myOrganizationsContent}>
             <div className = {styles.createOrgWrapper}>
-                <NavLink to = "">Create Org</NavLink>
+                <NavLink to = "">+ Create Org</NavLink>
             </div>
             <h3 className = {styles.sectionName}>My Organizations</h3>
             <div className = {styles.orgList}>
