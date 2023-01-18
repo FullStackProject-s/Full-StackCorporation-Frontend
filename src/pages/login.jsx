@@ -1,14 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
-import { useCookies } from "react-cookie";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [cookies, setCookie] = useCookies();
-
   const getToken = async () => {
     try {
       const res = await axios.post(
@@ -25,17 +21,19 @@ export const Login = () => {
     }
   };
   const login = async (e) => {
-    await getToken();
-
+    const { access } = await getToken();
+    console.log(access);
     e.preventDefault();
     try {
       const res = await axios.post(
         "http://localhost:8000/auth/login/",
+        {},
         {
-          username,
-          password,
-        },
-        { withCredentials: true }
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${access}`,
+          },
+        }
       );
       console.log(res.data);
     } catch (error) {
