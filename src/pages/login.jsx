@@ -8,38 +8,82 @@ export const Login = () => {
   const getToken = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/auth/token/",
+        "http://localhost:6969/auth/token/tokens-obtain/",
         {
-          username,
-          password,
+          username: username,
+          password: password,
         },
         { withCredentials: true }
       );
+      console.log(res.data);
       return res.data;
     } catch (error) {
       console.log(error);
     }
   };
-  const login = async (e) => {
+  const data_1 = async () => {
     const { access } = await getToken();
     console.log(access);
-    e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:8000/auth/login/",
-        {},
-        {
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${access}`,
-          },
-        }
-      );
+      const res = await axios.get("http://localhost:6969/team/all-teams/", {
+        headers: {
+          Authorization: `Bearer ${access}`,
+        },
+      });
       console.log(res.data);
     } catch (error) {
       console.log(error);
     }
   };
+  const data_2 = async () => {
+    const { access } = await getToken();
+    console.log(access);
+    try {
+      const res = await axios.get("http://localhost:6969/project/all-projects/", {
+        headers: {
+          Authorization: `Bearer ${access}`,
+        },
+      });
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const data_3 = async () => {
+    const { access } = await getToken();
+    console.log(access);
+    try {
+      const res = await axios.get("http://localhost:6969/organization/all-organizations/", {
+        headers: {
+          Authorization: `Bearer ${access}`,
+        },
+      });
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const data_4 = async () => {
+    const { access } = await getToken();
+    console.log(access);
+    try {
+      const res = await axios.get("http://localhost:6969/developer/all-developers/", {
+        headers: {
+          Authorization: `Bearer ${access}`,
+        },
+      });
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+   const test = async (e) => {
+     e.preventDefault()
+     await data_1()
+     await data_2()
+     await data_3()
+     await data_4()
+   }
   return (
     <div className="justify-center flex ">
       <div className="w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col mt-10">
@@ -70,7 +114,7 @@ export const Login = () => {
         <input />
         <button
           type="submit"
-          onClick={login}
+          onClick={test}
           className="text-white bg-indigo-500
         border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600
         rounded text-lg"

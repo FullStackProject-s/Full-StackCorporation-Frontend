@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94538313-3652-454f-9476-cb5a1e928801" name="Changes" comment="Main auth token">
-      <change afterPath="$PROJECT_DIR$/src/pages/csrf_token.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/login.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +62,8 @@
       <workItem from="1673713521564" duration="11765000" />
       <workItem from="1673735893843" duration="1173000" />
       <workItem from="1673770594971" duration="22793000" />
+      <workItem from="1674076446577" duration="25000" />
+      <workItem from="1674116542102" duration="7742000" />
     </task>
     <task id="LOCAL-00001" summary="Main auth token">
       <created>1673738905612</created>
