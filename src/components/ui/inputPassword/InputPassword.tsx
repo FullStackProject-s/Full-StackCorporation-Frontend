@@ -6,10 +6,12 @@ import { EyePasswordOpen } from 'components/ui/svg/EyePasswordOpen';
 import styles from './inputPassword.module.scss'
 
 type InputPAsswordType = {
-    labelName: string
+    labelName: string,
+    value?: string,
+    onChange?: Function
 }
 
-export const InputPassword: React.FC<InputPAsswordType> = ({labelName}) => {
+export const InputPassword: React.FC<InputPAsswordType> = ({labelName, value, onChange}) => {
     const [isVisiblePassword, setVisibilityPassword] = useState(false);
 
     return (
@@ -19,6 +21,8 @@ export const InputPassword: React.FC<InputPAsswordType> = ({labelName}) => {
             <input 
                 className = {styles.input_password} 
                 type={isVisiblePassword ? "text" : "password"} 
+                value = {value}
+                onChange = {onChange ? (e) => onChange(e.target.value) : () => {}}
             />
             <div
                 onClick={() => setVisibilityPassword(!isVisiblePassword)}

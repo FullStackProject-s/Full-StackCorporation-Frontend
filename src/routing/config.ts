@@ -5,5 +5,6 @@ export const paths = {
     myOrganizations: '/profile/my-organizations',
     loginPage: '/login',
     registrationPage: '/registration',
-    changePasswordPage: '/change-password'
+    changePasswordPage: '/change-password',
+    missing: '*'
 };

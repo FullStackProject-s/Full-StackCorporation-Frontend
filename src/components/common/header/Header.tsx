@@ -6,8 +6,10 @@ import { Logo } from 'components/ui/svg/Logo'
 import { Profile } from 'components/ui/svg/profile/Profile'
 
 import styles from './header.module.scss'
+import { store, useAppSelector } from 'redux/store'
 
 export const Header: React.FC = () => {
+    const { isAuth } = useAppSelector((state) => state.user)
     return (
         <header className = {styles.header}>
             <div className = {styles.mainContainer}>
@@ -18,13 +20,18 @@ export const Header: React.FC = () => {
                     </NavLink>
                     <nav className = {styles.nav}>
                         <NavLink className = {styles.nav_el} to = {paths.organizationsPage}>Organizations</NavLink>
-                        {/* <div className = {styles.authWrapper}>
-                            <NavLink className = {`${styles.nav_el} ${styles.auth_el}`} to = {paths.loginPage}>Sign In</NavLink>
-                            <NavLink className = {`${styles.nav_el} ${styles.auth_el} ${styles.auth_el_alt}`} to = {paths.registrationPage}>Sign Up</NavLink>
-                        </div> */}
-                        <NavLink to = {paths.profilePage}>
-                            <Profile />
-                        </NavLink>
+                        {
+                            !isAuth 
+                            ?
+                            <div className = {styles.authWrapper}>
+                                <NavLink className = {`${styles.nav_el} ${styles.auth_el}`} to = {paths.loginPage}>Sign In</NavLink>
+                                <NavLink className = {`${styles.nav_el} ${styles.auth_el} ${styles.auth_el_alt}`} to = {paths.registrationPage}>Sign Up</NavLink>
+                            </div>
+                            :
+                            <NavLink to = {paths.profilePage}>
+                                <Profile />
+                            </NavLink>
+                        }
                     </nav>
                 </div>
             </div>
