@@ -1,0 +1,12 @@
+@import "assets/styles/constants.scss";
+
+.sectionActivate {
+    min-height: 280px;
+    margin: 200px 0;
+}
+
+.activationStatus {
+    color: $green;
+    font-size: 36px;
+    text-align: center;
+}

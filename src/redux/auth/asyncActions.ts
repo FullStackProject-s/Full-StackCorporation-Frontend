@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import AuthService from "api/auth/authService";
 import axios from "axios";
-import { Access, Login } from "types/auth/auth";
+import { Access, Activation, Login } from "types/auth/auth";
 import { ShowUser, BaseUser } from "types/user/user";
 
 export const checkAuth = createAsyncThunk(
@@ -43,6 +43,18 @@ export const registration = createAsyncThunk<ShowUser, BaseUser>(
     async ({username, email, first_name, last_name, password}) => {
         try {
             const response: any = await AuthService.registration(username, email, first_name, last_name, password)
+            console.log(response);
+            return response.data
+        } catch (error) {
+            console.log(error)
+        }
+})
+
+export const activation = createAsyncThunk<Activation, Activation>(
+    "user/activation", 
+    async ({uid, token}) => {
+        try {
+            const response: any = await AuthService.activation(uid, token)
             console.log(response);
             return response.data
         } catch (error) {
