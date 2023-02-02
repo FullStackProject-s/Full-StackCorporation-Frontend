@@ -1,4 +1,4 @@
-import { skillLavel } from "constants/skillLavel";
+import { SkillLavelEnum } from "constants/skillLavel";
 
 import { ShowProfile } from "types/user/profile";
 
@@ -10,7 +10,7 @@ export interface ShowProjectManager {
 
 export interface ProjectManager {
     profile: number,
-    skillLavel: skillLavel,
+    skillLavel: SkillLavelEnum,
     specialities: number[],
     stack: number[]
 }

@@ -1,16 +1,16 @@
-import { speciality } from "constants/speciality";
+import { SpecialityEnum } from "constants/speciality";
 
 import { ShowDeveloper } from "./developer";
 
 export interface ShowSpecialty {
     pk: number,
-    specialty: speciality,
+    specialty: SpecialityEnum,
     organizationDeveloper: ShowDeveloper
     organization: string
 }
 
 export interface Specialty {
-    specialty: speciality,
+    specialty: SpecialityEnum,
     organizationDeveloper: number
     organization: number
 }

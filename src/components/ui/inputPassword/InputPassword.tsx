@@ -9,9 +9,10 @@ type InputPAsswordType = {
     labelName: string,
     value?: string,
     onChange?: Function
+    onBlur?: Function
 }
 
-export const InputPassword: React.FC<InputPAsswordType> = ({labelName, value, onChange}) => {
+export const InputPassword: React.FC<InputPAsswordType> = ({labelName, value, onChange, onBlur}) => {
     const [isVisiblePassword, setVisibilityPassword] = useState(false);
 
     return (
@@ -22,7 +23,8 @@ export const InputPassword: React.FC<InputPAsswordType> = ({labelName, value, on
                 className = {styles.input_password} 
                 type={isVisiblePassword ? "text" : "password"} 
                 value = {value}
-                onChange = {onChange ? (e) => onChange(e.target.value) : () => {}}
+                onChange = {onChange ? (e) => onChange(e) : () => {}}
+                onBlur = {onBlur ? (e) => onBlur(e) : () => {}}
             />
             <div
                 onClick={() => setVisibilityPassword(!isVisiblePassword)}

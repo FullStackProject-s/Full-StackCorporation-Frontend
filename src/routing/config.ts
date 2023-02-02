@@ -5,6 +5,7 @@ export const paths = {
     myOrganizations: '/profile/my-organizations',
     loginPage: '/login',
     registrationPage: '/registration',
+    activateProfile: '/activate/:uid/:token',
     changePasswordPage: '/change-password',
     missing: '*'
 };

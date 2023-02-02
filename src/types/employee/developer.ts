@@ -1,4 +1,4 @@
-import { skillLavel } from "constants/skillLavel";
+import { SkillLavelEnum } from "constants/skillLavel";
 
 import { ShowProfile } from "types/user/profile";
 import { ShowTechnology } from "./technology";
@@ -7,14 +7,14 @@ export interface ShowDeveloper {
     pk: number,
     profile: ShowProfile,
     team: string,
-    skillLavel: skillLavel,
+    skillLavel: SkillLavelEnum,
     specialties: string[],
     stack: ShowTechnology[]
 }
 
 export interface Developer {
     profile: number,
-    skillLavel: skillLavel,
+    skillLavel: SkillLavelEnum,
     specialities: number[],
     stack: number[]
 }

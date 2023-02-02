@@ -1,4 +1,4 @@
-export enum technology { 
+export enum TechnologyEnum { 
     Frontend = "Frontend", 
     Backend = "Backend", 
     FullStack = "Full-Stack",

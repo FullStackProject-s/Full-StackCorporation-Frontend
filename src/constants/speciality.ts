@@ -1,4 +1,4 @@
-export enum speciality { 
+export enum SpecialityEnum { 
     Frontend = "Frontend", 
     Backend = "Backend", 
     FullStack = "Full-Stack",
