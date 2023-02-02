@@ -13,14 +13,14 @@ export const FormButton: React.FC<FormButtonType> = ({
     onClick
   }) => {
     
-      return (
-          <button
-              type = "button"
-              disabled={disabled || false}
-              className = {styles.formButton}
-              onClick = {onClick}
-          >
-              {children}
-          </button>
-      )
+    return (
+        <button
+            type = "button"
+            disabled={disabled || false}
+            className = {styles.formButton}
+            onClick = {onClick}
+        >
+            {children}
+        </button>
+    )
   }

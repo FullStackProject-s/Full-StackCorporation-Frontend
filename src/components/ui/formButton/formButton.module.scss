@@ -14,4 +14,8 @@
     &:hover {
         opacity: .6;
     }
+    &:disabled {
+        opacity: .2;
+        cursor: not-allowed;
+    }
 }

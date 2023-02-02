@@ -1,4 +1,4 @@
-import { technology } from "constants/technology";
+import { TechnologyEnum } from "constants/technology";
 import { ShowUser } from "types/user/user";
 
 export interface ShowTask {
@@ -11,5 +11,5 @@ export interface ShowTask {
 
 export interface Task {
     technologyName: string,
-    technologyCategory: technology
+    technologyCategory: TechnologyEnum
 }

@@ -26,10 +26,16 @@
     border-radius: 4px;
 }
 
+.alertMessage {
+    color: $orange;
+    font-size: 12px;
+}
+
 .label {
     color: $gray;
     opacity: .8;
     margin: 10px 0;
+    text-transform: uppercase;
 }
 
 .input {
@@ -37,7 +43,7 @@
     padding: 10px 5px 10px 10px;
     border: none;
     outline: none;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     background-color: $dark-gray;
     color: #000000;
     &_password {
