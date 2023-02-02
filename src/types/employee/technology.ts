@@ -1,12 +1,12 @@
-import { technology } from "constants/technology";
+import { TechnologyEnum } from "constants/technology";
 
 export interface ShowTechnology {
     pk: number,
     technologyName: string,
-    technologyCategory: technology
+    technologyCategory: TechnologyEnum
 }
 
 export interface Technology {
     technologyName: string,
-    technologyCategory: technology
+    technologyCategory: TechnologyEnum
 }

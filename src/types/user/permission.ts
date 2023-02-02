@@ -1,10 +1,10 @@
-import { role } from "constants/role"
+import { RoleEnum } from "constants/role"
 
 export interface ShowPermission {
     pk: number,
-    roleName: role
+    roleName: RoleEnum
 }
 
 export interface Permission {
-    roleName: role
+    roleName: RoleEnum
 }
