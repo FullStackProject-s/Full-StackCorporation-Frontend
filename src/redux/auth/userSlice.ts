@@ -8,6 +8,7 @@ interface UserState {
     isAuth: boolean,
     isActivate: boolean,
     isLoading: boolean,
+    error: string
 }
 
 const initialState: UserState = {
@@ -15,6 +16,7 @@ const initialState: UserState = {
     isAuth: false,
     isActivate: false,
     isLoading: false,
+    error: ""
 }
 
 const userSlice = createSlice({
@@ -51,10 +53,12 @@ const userSlice = createSlice({
         builder.addCase(login.fulfilled, (state, action) => {
             state.isLoading = false;
             state.isAuth = true;
+            state.error = "";
             localStorage.setItem('token', action.payload.access)
         });
-        builder.addCase(login.rejected, (state) => {
-            state.isLoading = false;
+        builder.addCase(login.rejected, (state, action) => {
+            state.isLoading = false;            
+            state.error = String(action.payload)
         });
         //Registration
         builder.addCase(registration.pending, (state) => {
@@ -62,9 +66,11 @@ const userSlice = createSlice({
         });
         builder.addCase(registration.fulfilled, (state) => {
             state.isLoading = false;
+            state.error = "";
         });
-        builder.addCase(registration.rejected, (state) => {
+        builder.addCase(registration.rejected, (state, action) => {
             state.isLoading = false;
+            state.error = String(action.payload)
         });
         //Activation
         builder.addCase(activation.pending, (state) => {

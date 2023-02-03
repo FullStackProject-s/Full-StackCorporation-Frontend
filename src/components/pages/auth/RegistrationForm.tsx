@@ -3,7 +3,7 @@ import React from 'react'
 import { useInputCheck } from 'hooks/formValidation/useInputCheck';
 
 import { registration } from 'redux/auth/asyncActions';
-import { useAppDispatch } from 'redux/store';
+import { useAppDispatch, useAppSelector } from 'redux/store';
 
 import { FormButton } from 'components/ui/formButton/FormButton';
 import { InputPassword } from 'components/ui/inputPassword/InputPassword';
@@ -20,6 +20,8 @@ export const RegistrationForm: React.FC = () => {
     const last_name = useInputCheck("", {isEmpty: true, maxLength: 25})
     const password = useInputCheck("", {isEmpty: true, minLength: 8, maxLength: 25})
     const rePassword = useInputCheck("", {isEmpty: true, isPassword: password.value})
+
+    const { error } = useAppSelector(state => state.user)
 
     const inputLabels = [
       {
@@ -96,6 +98,9 @@ export const RegistrationForm: React.FC = () => {
           }))}>
           SIGN UP
         </FormButton>
+        {
+          error && <p className = {styles.alertMessage}>{error}</p>
+        }
       </form>
     );
 }

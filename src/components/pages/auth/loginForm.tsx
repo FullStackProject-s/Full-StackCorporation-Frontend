@@ -20,7 +20,7 @@ export const LoginForm: React.FC = () => {
     const username = useInputCheck("", {isEmpty: true, minLength: 5, maxLength: 25})
     const password = useInputCheck("", {isEmpty: true, minLength: 8, maxLength: 25})
 
-    const { isAuth, isLoading } = useAppSelector(state => state.user)
+    const { isAuth, isLoading, error } = useAppSelector(state => state.user)
 
     if (isAuth && !isLoading) {
       navigate(paths.profilePage)
@@ -48,7 +48,17 @@ export const LoginForm: React.FC = () => {
         {
           (password.isFocus && password.errorMessage) && <p className = {styles.alertMessage}>{password.errorMessage}</p>
         }
-        <FormButton disabled = {!username.formValid || !password.formValid} onClick = {() => dispatch(login({username: username.value, password: password.value}))}>SIGN IN</FormButton>
+        <FormButton 
+          disabled = {!username.formValid || !password.formValid} 
+          onClick = {() => dispatch(login({
+            username: username.value, 
+            password: password.value
+          }))}>
+          SIGN IN
+        </FormButton>
+        {
+          error && <p className = {styles.alertMessage}>{error}</p>
+        }
       </form>
     );
 }
