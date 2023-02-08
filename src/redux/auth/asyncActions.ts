@@ -114,13 +114,14 @@ export const resetPassword = createAsyncThunk<ResetPassword, ResetPassword>(
 
 export const resetPasswordConfirm = createAsyncThunk<ResetPasswordConfirm, ResetPasswordConfirm>(
     "user/resetPasswordConfirm", 
-    async ({uid, token, new_password}) => {
+    async ({uid, token, new_password}, thunkAPI) => {
         try {
             const response: any = await AuthService.resetPasswordConfirm(uid, token, new_password)
             console.log(response);
             return response.data
         } catch (error) {
             console.log(error)
+            return thunkAPI.rejectWithValue("New password is to common");
         }
     }
 )

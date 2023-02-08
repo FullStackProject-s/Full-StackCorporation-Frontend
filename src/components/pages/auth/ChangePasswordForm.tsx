@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'redux/store';
-import { resetPasswordConfirm } from 'redux/auth/asyncActions';
+import { logout, resetPasswordConfirm } from 'redux/auth/asyncActions';
 
 import { paths } from 'routing/config';
 
@@ -19,7 +19,7 @@ export const ChangePasswordForm: React.FC = () => {
     const navigate = useNavigate();
 
     const { uid, token } = useParams();
-    const { isLoading, isActivatePassword } = useAppSelector(state => state.user)
+    const { isLoading, isActivatePassword, error } = useAppSelector(state => state.user)
 
     const password = useInputCheck("", {isEmpty: true, minLength: 8, maxLength: 25})
     const rePassword = useInputCheck("", {isEmpty: true, isPassword: password.value})
@@ -27,8 +27,9 @@ export const ChangePasswordForm: React.FC = () => {
     const uidParametr = uid ? uid : ""
     const tokenParametr = token ? token : ""
 
-    if (!isLoading && isActivatePassword ) {
-        navigate(paths.changePasswordPage)
+    if (!isLoading && isActivatePassword) {
+        dispatch(logout())
+        navigate(paths.loginPage)
     }
 
     return (
@@ -56,6 +57,9 @@ export const ChangePasswordForm: React.FC = () => {
           onClick = {() => dispatch(resetPasswordConfirm({uid: uidParametr, token: tokenParametr, new_password: password.value}))}>
           Change Password
         </FormButton>
+        {
+          error && <p className = {styles.alertMessage}>{error}</p>
+        }
       </form>
     );
 }

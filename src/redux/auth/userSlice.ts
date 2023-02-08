@@ -116,11 +116,9 @@ const userSlice = createSlice({
         });
         builder.addCase(resetPassword.fulfilled, (state) => {
             state.isLoading = false;
-            state.isActivatePassword = true;
         });
         builder.addCase(resetPassword.rejected, (state) => {
             state.isLoading = false;
-            state.isActivatePassword = false;
         });
         //Reset Password Confirm
         builder.addCase(resetPasswordConfirm.pending, (state) => {
@@ -128,9 +126,13 @@ const userSlice = createSlice({
         });
         builder.addCase(resetPasswordConfirm.fulfilled, (state) => {
             state.isLoading = false;
+            state.isActivatePassword = true;
+            state.error = "";
         });
-        builder.addCase(resetPasswordConfirm.rejected, (state) => {
+        builder.addCase(resetPasswordConfirm.rejected, (state, action) => {
             state.isLoading = false;
+            state.isActivatePassword = false;
+            state.error = String(action.payload)
         });
     },
 })
