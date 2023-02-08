@@ -1,19 +1,17 @@
 import React, { useState } from 'react'
 
-import { Edit } from 'components/ui/svg/edit/Edit';
-
-import emptyAvatar from 'assets/img/emptyAvatar.webp'
-
-import { ShowUser } from 'types/user/user';
-
-import styles from './profileContent.module.scss'
 import { useAppDispatch } from 'redux/store';
 import { resetPassword } from 'redux/auth/asyncActions';
 
-export const ProfileContent: React.FC<ShowUser> = (user) => {
+import { ShowProfile } from 'types/user/profile';
+
+import { Edit } from 'components/ui/svg/edit/Edit';
+
+import styles from './profileContent.module.scss'
+
+export const ProfileContent: React.FC<ShowProfile> = ({user, profile_avatar}) => {
 
     const dispatch = useAppDispatch()
-
 
     const [isOpenEditInputs, setOpenEditInputs] = useState(false)
     const [changeHandler, setChangeHandler] = useState(false)
@@ -21,7 +19,7 @@ export const ProfileContent: React.FC<ShowUser> = (user) => {
     return (
         <div className = {styles.profileContent}>
             <div className = {styles.firstSection}>
-                <p>Created at: <span>{user.createAt}</span></p>
+                <p>Created at: <span>{user.create_at}</span></p>
                 <div onClick = {() => setOpenEditInputs(!isOpenEditInputs)} className = {styles.editWrapper}>
                     <p>Edit</p>
                     <Edit />
@@ -29,7 +27,7 @@ export const ProfileContent: React.FC<ShowUser> = (user) => {
             </div>
             <div className = {styles.secondSection}>
                 <div className = {styles.imgBlock}>
-                    <img src = {emptyAvatar} alt="avatar" />
+                    <img src = {profile_avatar} alt="avatar" />
                     <h3>{user.username}</h3>
                 </div>
                 <ul className = {styles.infoBlock}>

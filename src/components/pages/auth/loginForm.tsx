@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { paths } from 'routing/config';
 
-import { login, getMe } from 'redux/auth/asyncActions';
+import { login } from 'redux/auth/asyncActions';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 
 import { useInputCheck } from 'hooks/formValidation/useInputCheck';

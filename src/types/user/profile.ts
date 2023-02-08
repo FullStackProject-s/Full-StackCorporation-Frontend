@@ -1,10 +1,10 @@
 import { ShowUser } from "./user";
 
 export interface ShowProfile {
-    pk: number,
+    pk?: number,
     user: ShowUser,
-    profileAvatar: string;
-    aboutUser: string
+    profile_avatar: string;
+    aboutUser?: string
 }
 
 export interface Profile {
@@ -13,5 +13,5 @@ export interface Profile {
 }
 
 export interface UploadImage {
-    profileAvatar: string;
+    profile_avatar: string;
 }
