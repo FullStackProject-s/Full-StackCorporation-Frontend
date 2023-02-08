@@ -6,6 +6,6 @@ export const paths = {
     loginPage: '/login',
     registrationPage: '/registration',
     activateProfile: '/activate/:uid/:token',
-    changePasswordPage: '/change-password',
+    changePasswordPage: '/password/reset/confirm/:uid/:token',
     missing: '*'
 };

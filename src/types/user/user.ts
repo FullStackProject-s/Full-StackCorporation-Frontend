@@ -10,7 +10,7 @@ export interface BaseUser {
 
 export interface ShowUser extends BaseUser {
     pk: number,
-    createAt: string,
+    create_at: string,
     staffRole?: ShowPermission
 }
 
