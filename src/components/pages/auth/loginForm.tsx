@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { paths } from 'routing/config';
 
-import { login } from 'redux/auth/asyncActions';
+import { login, getMe } from 'redux/auth/asyncActions';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 
 import { useInputCheck } from 'hooks/formValidation/useInputCheck';
@@ -14,6 +14,7 @@ import { InputPassword } from 'components/ui/inputPassword/InputPassword';
 import styles from 'components/pages/auth/auth.module.scss'
 
 export const LoginForm: React.FC = () => {
+  
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 

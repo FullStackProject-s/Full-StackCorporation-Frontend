@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { checkAuth, login, logout, registration, activation } from "./asyncActions";
+import { checkAuth, login, logout, registration, activation, getMe, resetPassword, resetPasswordConfirm } from "./asyncActions";
 
 import { ShowUser } from "types/user/user";
 
@@ -7,6 +7,7 @@ interface UserState {
     user: ShowUser,
     isAuth: boolean,
     isActivate: boolean,
+    isActivatePassword: boolean,
     isLoading: boolean,
     error: string
 }
@@ -15,6 +16,7 @@ const initialState: UserState = {
     user: {} as ShowUser,
     isAuth: false,
     isActivate: false,
+    isActivatePassword: false,
     isLoading: false,
     error: ""
 }
@@ -95,6 +97,39 @@ const userSlice = createSlice({
             state.user = {} as ShowUser
         });
         builder.addCase(logout.rejected, (state) => {
+            state.isLoading = false;
+        });
+        //Get Me
+        builder.addCase(getMe.pending, (state) => {
+            state.isLoading = true;
+        });
+        builder.addCase(getMe.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.user = action.payload
+        });
+        builder.addCase(getMe.rejected, (state) => {
+            state.isLoading = false;
+        });
+        //Reset Password
+        builder.addCase(resetPassword.pending, (state) => {
+            state.isLoading = true;
+        });
+        builder.addCase(resetPassword.fulfilled, (state) => {
+            state.isLoading = false;
+            state.isActivatePassword = true;
+        });
+        builder.addCase(resetPassword.rejected, (state) => {
+            state.isLoading = false;
+            state.isActivatePassword = false;
+        });
+        //Reset Password Confirm
+        builder.addCase(resetPasswordConfirm.pending, (state) => {
+            state.isLoading = true;
+        });
+        builder.addCase(resetPasswordConfirm.fulfilled, (state) => {
+            state.isLoading = false;
+        });
+        builder.addCase(resetPasswordConfirm.rejected, (state) => {
             state.isLoading = false;
         });
     },

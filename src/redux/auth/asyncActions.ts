@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import AuthService from "api/auth/authService";
-import axios, { AxiosError } from "axios";
-import { Access, Activation, Login } from "types/auth/auth";
+import UserService from "api/user/userService";
+import axios from "axios";
+import { Access, Activation, Login, ResetPassword, ResetPasswordConfirm } from "types/auth/auth";
 import { ShowUser, BaseUser } from "types/user/user";
 
 export const checkAuth = createAsyncThunk(
@@ -11,6 +12,7 @@ export const checkAuth = createAsyncThunk(
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
             },
         };
         try {
@@ -36,7 +38,8 @@ export const login = createAsyncThunk<Access, Login>(
         } catch (error) {
             return thunkAPI.rejectWithValue("Incorrect username or password");
         }
-})
+    }
+)
 
 export const registration = createAsyncThunk<ShowUser, BaseUser>(
     "user/registration", 
@@ -52,7 +55,8 @@ export const registration = createAsyncThunk<ShowUser, BaseUser>(
                 throw new Error('different error than axios');
               }
         }
-})
+    }
+)
 
 export const activation = createAsyncThunk<Activation, Activation>(
     "user/activation", 
@@ -64,7 +68,8 @@ export const activation = createAsyncThunk<Activation, Activation>(
         } catch (error) {
             console.log(error)
         }
-})
+    }
+)
 
 export const logout = createAsyncThunk(
     "user/logout", 
@@ -76,4 +81,46 @@ export const logout = createAsyncThunk(
         } catch (error) {
             console.log(error)
         }
-})
+    }
+)
+
+export const getMe = createAsyncThunk<ShowUser>(
+    "user/getMe", 
+    async () => {
+        try {
+            const response: any = await UserService.getMe()
+            console.log(response);
+            return response.data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+)
+
+
+export const resetPassword = createAsyncThunk<ResetPassword, ResetPassword>(
+    "user/resetPassword", 
+    async ({email}) => {
+        try {
+            const response: any = await AuthService.resetPassword(email)
+            console.log(response);
+            return response.data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+)
+
+
+export const resetPasswordConfirm = createAsyncThunk<ResetPasswordConfirm, ResetPasswordConfirm>(
+    "user/resetPasswordConfirm", 
+    async ({uid, token, new_password}) => {
+        try {
+            const response: any = await AuthService.resetPasswordConfirm(uid, token, new_password)
+            console.log(response);
+            return response.data
+        } catch (error) {
+            console.log(error)
+        }
+    }
+)

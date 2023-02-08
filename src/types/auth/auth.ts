@@ -19,5 +19,5 @@ export interface ResetPassword {
 export interface ResetPasswordConfirm {
     uid: string,
     token: string
-    newPassword: string
+    new_password: string
 }
