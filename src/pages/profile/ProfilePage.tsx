@@ -14,8 +14,6 @@ export const ProfilePage: React.FC = () => {
 
     const { user, avatar } = useAppSelector(state => state.profile)
 
-    console.log(avatar)
-
     useEffect(() => {
         dispatch(getMe())
     }, [])

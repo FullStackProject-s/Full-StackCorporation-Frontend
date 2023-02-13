@@ -1,0 +1,33 @@
+@import "assets/styles/constants.scss";
+
+.uploadAvatar {
+    position: absolute;
+    bottom: 45px;
+    right: 5px;
+}
+
+.uploadAvatar__label {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 10px 15px;
+    background-color: $green;
+    color: $gray;
+}
+
+.uploadAvatar__input {
+    width: 40px;
+    height: 60px;
+    border-radius: 100%;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    cursor: pointer;
+}
+
+.avatar {
+    position: absolute;
+    left: 200px;
+}
