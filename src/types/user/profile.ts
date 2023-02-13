@@ -13,5 +13,6 @@ export interface Profile {
 }
 
 export interface UploadImage {
-    profile_avatar: string;
+    pk: number,
+    profile_avatar: File;
 }
