@@ -48,8 +48,5 @@ code {
 }
 
 .outlet {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin-bottom: 100px;
+    min-height: calc(100vh - 80px);
 }
