@@ -20,7 +20,9 @@ export const Layout: React.FC = () => {
   return(
     <>
       <Header />
-      <Outlet/>
+      <div className='outlet'>
+        <Outlet/>
+      </div>
       <Footer/>
     </>
   )

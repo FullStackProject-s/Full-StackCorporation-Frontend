@@ -7,12 +7,23 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     vertical-align: baseline; 
 }
 
+html {
+    height: 100%;
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'OpenSans';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #1a1c21;  
+    height: 100%;
+    width: 100%; 
+}
+
+#root {
+    height: 100%;
+    width: 100%; 
 }
 
 a {
@@ -34,4 +45,11 @@ button:focus {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
+}
+
+.outlet {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: 100px;
 }
