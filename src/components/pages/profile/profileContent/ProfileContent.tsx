@@ -6,6 +6,7 @@ import { resetPassword } from 'redux/auth/asyncActions';
 import { ShowProfile } from 'types/user/profile';
 
 import { Edit } from 'components/ui/svg/edit/Edit';
+import { UploadAvatar } from 'components/ui/uploadAvatar/UploadAvatar';
 
 import styles from './profileContent.module.scss'
 
@@ -29,6 +30,7 @@ export const ProfileContent: React.FC<ShowProfile> = ({user, profile_avatar}) =>
                 <div className = {styles.imgBlock}>
                     <img src = {profile_avatar} alt="avatar" />
                     <h3>{user.username}</h3>
+                    <UploadAvatar />
                 </div>
                 <ul className = {styles.infoBlock}>
                     <li className = {styles.infoBlock_el}>
