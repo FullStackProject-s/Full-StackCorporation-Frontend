@@ -4,11 +4,11 @@ import { useAppDispatch, useAppSelector } from 'redux/store';
 import { getMe } from 'redux/profile/asyncActions';
 
 import { Navbar } from 'components/common/profileNavbar/Navbar'
-import { ProfileContent } from 'components/pages/profile/profileContent/ProfileContent';
+import { ProfileContent } from 'components/pages/profile/myProfile/profileContent/ProfileContent';
 
 import styles from './profile.module.scss'
 
-export const ProfilePage: React.FC = () => {
+export const MyProfilePage: React.FC = () => {
     
     const dispatch = useAppDispatch();
 
