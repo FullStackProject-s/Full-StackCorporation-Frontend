@@ -10,16 +10,17 @@ export const useInputCheck = (initialValue: string, validationTypes: Validation)
     const valid = useValidation(value, validationTypes)
 
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setValue(e.target.value)
     }
 
-    const onBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const onBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFocus(true)
     }
 
     return {
         value,
+        setValue,
         onChange,
         onBlur,
         isFocus,

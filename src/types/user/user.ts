@@ -17,3 +17,12 @@ export interface ShowUser extends BaseUser {
 export interface User extends BaseUser {
     staffRole?: ShowPermission
 }
+
+export interface UpdateUser {
+    pk: number,
+    username: string,
+    email: string,
+    first_name: string,
+    last_name: string,
+    staff_role?: number
+}

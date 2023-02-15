@@ -13,10 +13,11 @@ html {
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'OpenSans';
+    font-family: -apple-system, BlinkMacSystemFont, 'Lato', 'OpenSans';
+    letter-spacing: 1.2px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #1a1c21;  
+    background-color: #1f2127;  
     height: 100%;
     width: 100%; 
 }
@@ -34,9 +35,10 @@ li {
     list-style-type: none;
 }
 
-button {
+button, input, input::placeholder, textarea, textarea::placeholder {
     border: none;
-    font-family: -apple-system, BlinkMacSystemFont, 'OpenSans';
+    font-family: -apple-system, BlinkMacSystemFont, 'Lato', 'OpenSans';
+    letter-spacing: 1.2px;
 }
 button:focus {
     border: none;
