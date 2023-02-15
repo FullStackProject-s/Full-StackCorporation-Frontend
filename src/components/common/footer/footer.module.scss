@@ -7,7 +7,6 @@
     padding: 20px 0;
     text-align: center;
     margin-top: 40px;
-    font-size: 14px;
     border-top: 1px solid #00000030;
     &_content {
         margin: 0 auto;
@@ -17,7 +16,7 @@
         justify-content: space-between;
         .wrapper {
             p {
-                font-size: 16px;
+                font-size: 12px;
                 letter-spacing: 4px;
                 margin-bottom: 5px;
                 color: $gray;
@@ -25,6 +24,7 @@
             }
             a {
                 color: $dark-gray;
+                font-size: 10px;
             }
         }
     }

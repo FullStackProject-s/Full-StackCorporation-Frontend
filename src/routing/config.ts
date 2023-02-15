@@ -3,6 +3,7 @@ export const paths = {
     organizationsPage: '/organizations',
     profilePage: '/profile',
     myOrganizations: '/profile/my-organizations',
+    profileSettings: '/profile/settings',
     loginPage: '/login',
     registrationPage: '/registration',
     activateProfile: '/activate/:uid/:token',

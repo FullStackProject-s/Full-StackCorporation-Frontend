@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getMe } from "./asyncActions";
+import { getMe, updateUser } from "./asyncActions";
 
 import { ShowUser } from "types/user/user";
 
 interface UserState {
+    pk: number,
     user: ShowUser,
     isAuth: boolean,
     isActivate: boolean,
@@ -13,6 +14,7 @@ interface UserState {
 }
 
 const initialState: UserState = {
+    pk: 0,
     user: {} as ShowUser,
     isAuth: false,
     isActivate: false,
@@ -53,6 +55,17 @@ const userSlice = createSlice({
             state.isLoading = false;
         });
         builder.addCase(getMe.rejected, (state) => {
+            state.isLoading = false;
+        });
+        // Update User
+        builder.addCase(updateUser.pending, (state) => {
+            state.isLoading = true;
+        });
+        builder.addCase(updateUser.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.user = action.payload
+        });
+        builder.addCase(updateUser.rejected, (state) => {
             state.isLoading = false;
         });
     },

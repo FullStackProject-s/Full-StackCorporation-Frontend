@@ -1,0 +1,12 @@
+@import "assets/styles/constants.scss";
+
+.avatar {
+    position: relative;
+
+    img {
+        width: 200px;
+        height: 250px;
+        outline: 2px solid $orange;
+        border-radius: 5px;
+    }
+}

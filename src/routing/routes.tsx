@@ -7,8 +7,10 @@ import { ChangePasswordPage } from "pages/auth/formPage/ChangePasswordPage";
 
 import { HomePage } from "pages/homePage/HomePage";
 import { OrganizationsPage } from "pages/organizations/OrganizationsPage";
-import { ProfilePage } from "pages/profile/ProfilePage";
-import { MyOrganizations } from "pages/myOrganizations/MyOrganizations";
+
+import { MyProfilePage } from "pages/profile/myProfile/MyProfilePage";
+import { MyOrganizations } from "pages/profile/myOrganizations/MyOrganizations";
+import { SettingsPage } from "pages/profile/settings/SettingsPage";
 
 export const RoutesList = [
     {path: paths.homePage, element: <HomePage/>},
@@ -17,7 +19,8 @@ export const RoutesList = [
     {path: paths.registrationPage, element: <RegistrationPage/>},
     {path: paths.activateProfile, element: <ActivateProfilePage/>},
     {path: paths.changePasswordPage, element: <ChangePasswordPage/>},
-    {path: paths.profilePage, element: <ProfilePage/>},
+    {path: paths.profilePage, element: <MyProfilePage/>},
     {path: paths.myOrganizations, element: <MyOrganizations/>},
+    {path: paths.profileSettings, element: <SettingsPage/>},
     {path: paths.missing, element: <HomePage/>},
 ]

@@ -4,7 +4,7 @@
     background-color: $header;
     position: fixed;
     width: 100%;
-    padding: 16px 0;
+    padding: 10px 0;
     top: 0;
     z-index: 100;
     box-shadow: 0px 2px 2px 0px #00000030;
@@ -18,7 +18,7 @@
         display: flex;
         align-items: center;
         &_label {
-            font-size: 30px;
+            font-size: 28px;
             color: $green;
             span {
                 color: $orange;
@@ -33,7 +33,7 @@
     justify-content: space-between;
     align-items: center;
     &_el {
-        font-size: 20px;
+        font-size: 18px;
         color: $gray;
         text-transform: uppercase;
         transition: all .2s;
@@ -49,7 +49,7 @@
         width: 160px;
         .auth_el {
             color: $green;
-            font-size: 16px;
+            font-size: 14px;
             padding: 6px 4px;
             border: 1px solid $green;
             border-radius: 4px;
