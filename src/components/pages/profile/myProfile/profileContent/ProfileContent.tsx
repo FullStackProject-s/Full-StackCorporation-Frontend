@@ -1,16 +1,13 @@
 import React, { useState } from 'react'
 
-import { useAppDispatch } from 'redux/store';
-import { resetPassword } from 'redux/auth/asyncActions';
+import { useAppDispatch } from 'redux/store'
+import { resetPassword } from 'redux/auth/asyncActions'
 
-import { ShowProfile } from 'types/user/profile';
-
-import { UploadAvatar } from 'components/ui/uploadAvatar/UploadAvatar';
+import { ProfileType } from 'types/pages/profile'
 
 import styles from './profileContent.module.scss'
-import { Avatar } from 'components/common/avatar/Avatar';
 
-export const ProfileContent: React.FC<ShowProfile> = ({user, profile_avatar}) => {
+export const ProfileContent: React.FC<ProfileType> = ({user, profile_avatar, about_user}) => {
 
     const dispatch = useAppDispatch()
 
@@ -45,6 +42,13 @@ export const ProfileContent: React.FC<ShowProfile> = ({user, profile_avatar}) =>
                     }
                 </ul>
             </div>
+            {
+                about_user &&
+                <div className = {styles.aboutMe}>
+                    <p className = {styles.label}>About Me</p>
+                    <pre className = {styles.aboutMeText}>{about_user}</pre>
+                </div>
+            }
         </div>
     );
 }

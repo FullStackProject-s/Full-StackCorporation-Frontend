@@ -13,7 +13,7 @@ export const SettingsPage: React.FC = () => {
 
     const dispatch = useAppDispatch();
 
-    const { user, avatar, about } = useAppSelector(state => state.profile)
+    const { pk, user, avatar, about } = useAppSelector(state => state.profile)
 
     useEffect(() => {
         dispatch(getMe())
@@ -24,7 +24,7 @@ export const SettingsPage: React.FC = () => {
             <div className="mainContainer">
                 <div className = {styles.pageContent}>
                     <Navbar />
-                    <SettingsContent user = {user} profile_avatar = {avatar} aboutUser = {about}/>
+                    <SettingsContent user = {user} profile_avatar = {avatar} about_user = {about} pk = {pk}/>
                 </div>
             </div>
         </section>

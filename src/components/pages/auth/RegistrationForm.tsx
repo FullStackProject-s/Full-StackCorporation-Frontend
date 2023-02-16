@@ -21,7 +21,7 @@ export const RegistrationForm: React.FC = () => {
     const password = useInputCheck("", {isEmpty: true, minLength: 8, maxLength: 25})
     const rePassword = useInputCheck("", {isEmpty: true, isPassword: password.value})
 
-    const { error } = useAppSelector(state => state.user)
+    const { error, message } = useAppSelector(state => state.user)
 
     const inputLabels = [
       {
@@ -100,6 +100,9 @@ export const RegistrationForm: React.FC = () => {
         </FormButton>
         {
           error && <p className = {styles.alertMessage}>{error}</p>
+        }
+        {
+          message && <p className = {styles.alertMessage}>{message}</p>
         }
       </form>
     );

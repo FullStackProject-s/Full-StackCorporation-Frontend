@@ -3,7 +3,7 @@ import axios from "axios";
 
 import AuthService from "api/auth/authService";
 
-import { setActivate, setActivatePassword, setAuth, setError, setLoading } from "redux/user/userSlice";
+import { setActivate, setActivatePassword, setAuth, setError, setLoading, setMessage } from "redux/user/userSlice";
 
 import { Activation, Login, ResetPassword, ResetPasswordConfirm } from "types/auth/auth";
 import { BaseUser } from "types/user/user";
@@ -65,6 +65,7 @@ export const registration = createAsyncThunk<void, BaseUser>(
 
             thunkAPI.dispatch(setLoading(false));
             thunkAPI.dispatch(setError(""));
+            thunkAPI.dispatch(setMessage("Please check email and confirm regestration"));
         } catch (error) {
             thunkAPI.dispatch(setLoading(false));
             if (axios.isAxiosError(error)) {
@@ -83,6 +84,7 @@ export const activation = createAsyncThunk<void, Activation>(
         try {
             await AuthService.activation(uid, token)
             thunkAPI.dispatch(setActivate(true));
+            thunkAPI.dispatch(setMessage(""));
             thunkAPI.dispatch(setLoading(false)); 
         } catch (error) {
             thunkAPI.dispatch(setLoading(false)); 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { Validation } from 'types/validation/validation';
+import { Validation } from 'types/hooks/validation/validation';
 import { ValidationEnum } from 'constants/validation';
 
 export const useValidation = (value: string, validationTypes: Validation) => {

@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 import { ShowUser } from "types/user/user";
-import { getMe, uploadAvatar } from "./asyncActions";
+import { getMe, updateProfile, uploadAvatar } from "./asyncActions";
 
 interface ProfileState {
     pk: number,
@@ -35,7 +35,7 @@ const profileSlice = createSlice({
             state.pk = action.payload.pk ? action.payload.pk : 0
             state.user = action.payload.user
             state.avatar = `${process.env.REACT_APP_API_DOMAIN}${action.payload.profile_avatar}`
-            state.about = action.payload.aboutUser ? action.payload.aboutUser : ""
+            state.about = action.payload.about_user ? action.payload.about_user : ""
         });
         builder.addCase(getMe.rejected, (state) => {
             state.isLoading = false;
@@ -49,6 +49,17 @@ const profileSlice = createSlice({
             state.avatar = `${process.env.REACT_APP_API_DOMAIN}${action.payload.profile_avatar}`
         });
         builder.addCase(uploadAvatar.rejected, (state) => {
+            state.isLoading = false;
+        });
+        //Update profile
+        builder.addCase(updateProfile.pending, (state) => {
+            state.isLoading = true;
+        });
+        builder.addCase(updateProfile.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.about = action.payload.about_user ? action.payload.about_user : ""
+        });
+        builder.addCase(updateProfile.rejected, (state) => {
             state.isLoading = false;
         });
     },
