@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 
 import { useInputCheck } from 'hooks/formValidation/useInputCheck'
 
-import { ShowProfile } from 'types/user/profile'
 import { updateUser } from 'redux/user/asyncActions'
 import { FormButton } from 'components/ui/formButton/FormButton'
 import { useAppDispatch, useAppSelector } from 'redux/store'
@@ -10,8 +9,10 @@ import { useAppDispatch, useAppSelector } from 'redux/store'
 import { Avatar } from 'components/common/avatar/Avatar'
 
 import styles from './settingsContent.module.scss'
+import { updateProfile } from 'redux/profile/asyncActions'
+import { SettingsType } from 'types/pages/profile'
 
-export const SettingsContent: React.FC<ShowProfile> = ({user, profile_avatar, pk}) => {
+export const SettingsContent: React.FC<SettingsType> = ({user, profile_avatar, about_user, pk}) => {
 
   const dispatch = useAppDispatch();
 
@@ -24,13 +25,32 @@ export const SettingsContent: React.FC<ShowProfile> = ({user, profile_avatar, pk
   const textarea = useInputCheck("", {maxLength: 10000})
 
   useEffect(() => {
-    if(user.username && user.email && user.first_name && user.last_name ) {
+    if( user.username && user.email && user.first_name && user.last_name ) {
       username.setValue(user.username)
       email.setValue(user.email)
       first_name.setValue(user.first_name)
       last_name.setValue(user.last_name)
+      textarea.setValue(about_user)
     }
   }, [user])
+
+  const updateSettingsProfile = () => {
+
+    dispatch(updateUser({
+      username: username.value,
+      email: email.value,
+      first_name: first_name.value,
+      last_name: last_name.value,
+      pk: user.pk
+    }))
+
+    dispatch(updateProfile({
+      pk: pk,
+      user: user.pk,
+      about_user: textarea.value
+    }))
+
+  }
 
   return (
     <div className = {styles.settingsContent}>
@@ -86,13 +106,7 @@ export const SettingsContent: React.FC<ShowProfile> = ({user, profile_avatar, pk
       <div className = {styles.buttonBlock}>
         <FormButton 
           disabled = {!username.formValid || !email.formValid || !first_name.formValid || !last_name.formValid} 
-          onClick = {() => dispatch(updateUser({
-            username: username.value,
-            email: email.value,
-            first_name: first_name.value,
-            last_name: last_name.value,
-            pk: user.pk
-          }))}>
+          onClick = {() => updateSettingsProfile()}>
           Update Profile
         </FormButton>
       </div>

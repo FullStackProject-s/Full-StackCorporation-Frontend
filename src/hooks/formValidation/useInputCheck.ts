@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { useValidation } from './useValidation';
 
-import { Validation } from 'types/validation/validation';
+import { Validation } from 'types/hooks/validation/validation';
 
 export const useInputCheck = (initialValue: string, validationTypes: Validation) => {
     const [value, setValue] = useState(initialValue);
