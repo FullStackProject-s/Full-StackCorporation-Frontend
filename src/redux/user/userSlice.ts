@@ -10,7 +10,8 @@ interface UserState {
     isActivate: boolean,
     isActivatePassword: boolean,
     isLoading: boolean,
-    error: string
+    error: string,
+    message: string
 }
 
 const initialState: UserState = {
@@ -20,7 +21,8 @@ const initialState: UserState = {
     isActivate: false,
     isActivatePassword: false,
     isLoading: false,
-    error: ""
+    error: "",
+    message: ""
 }
 
 const userSlice = createSlice({
@@ -44,6 +46,9 @@ const userSlice = createSlice({
         },
         setActivatePassword(state, action: PayloadAction<boolean>) {
             state.isActivatePassword = action.payload;
+        },
+        setMessage(state, action: PayloadAction<string>) {
+            state.message = action.payload;
         },
     },
     extraReducers: (builder) => {
@@ -71,6 +76,6 @@ const userSlice = createSlice({
     },
 })
 
-export const { setAuth, setUser, setLoading, setError, setActivate, setActivatePassword } = userSlice.actions;
+export const { setAuth, setUser, setLoading, setError, setActivate, setActivatePassword, setMessage } = userSlice.actions;
 
 export default userSlice.reducer;
