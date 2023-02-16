@@ -1,0 +1,115 @@
+@import "assets/styles/constants.scss";
+
+.settingsContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto 0;
+
+    .label {
+        color: $gray;
+        opacity: .8;
+        margin: 5px 0;
+        text-transform: uppercase;
+        font-size: 12px;
+
+        span {
+            margin-left: 10px;
+            color: $orange;
+            font-size: 8px;
+            letter-spacing: normal;
+        }
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .upSection {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    
+        .avatarBlock {
+            flex-basis: 200px;
+            margin-right: 50px;
+        }
+        
+        .infoBlock {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        
+            input {
+                width: 400px;
+                border-radius: 10px;
+                padding: 8px 5px 8px 10px;
+                border: none;
+                outline: none;
+                margin-bottom: 10px;
+                background-color: $dark-gray;
+                color: #000000;
+
+                &:focus {
+                    outline: 1.5px solid $green * 0.6;
+                }
+            }
+
+            .alertMessage {
+                position: absolute;
+                bottom: -15px;
+                color: $orange;
+                font-size: 12px;
+            }
+        }
+    }
+    
+    .aboutBlock {
+        flex-basis: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+
+        label {
+            font-size: 16px;
+        }
+
+        textarea {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px 5px;
+            border: none;
+            outline: none;
+            resize: none;
+            background-color: $dark-gray;
+            color: #000000;
+            border-radius: 10px;
+            &::placeholder {
+                color: $gray * 0.6;
+            }
+            &:focus {
+                outline: 1.5px solid $green * 0.6;
+            }
+        }
+    }
+
+    .buttonBlock {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 20px;
+
+        button {
+            padding: 10px 15px;
+            background-color: $green;
+            border-radius: 10px;
+            box-shadow: 2px 2px 1px #00000040;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $green * 0.8
+            }
+        }
+
+    }
+}

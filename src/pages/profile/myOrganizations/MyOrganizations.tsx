@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Navbar } from 'components/common/profileNavbar/Navbar';
-import { MyOrganizationsContent } from 'components/pages/myOrganizations/myOrganizationsContent/MyOrganizationsContent';
+import { MyOrganizationsContent } from 'components/pages/profile/myOrganizations/myOrganizationContent/MyOrganizationsContent';
 
 import styles from './myOrganizations.module.scss'
 

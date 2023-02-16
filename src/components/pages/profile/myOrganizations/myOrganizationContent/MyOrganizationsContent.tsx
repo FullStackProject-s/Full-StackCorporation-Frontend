@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { OrganizationCart } from './organizationCart/OrganizationCart'
+import { OrganizationCart } from 'components/pages/profile/myOrganizations/myOrganizationContent/organizationCart/OrganizationCart'
 
 import styles from './myOrganizationsContent.module.scss'
 

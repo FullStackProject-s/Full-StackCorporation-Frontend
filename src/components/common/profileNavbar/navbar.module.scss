@@ -1,14 +1,24 @@
 @import "assets/styles/constants.scss";
 
+.navBlock {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .navBar {
     display: flex;
-    width: 344px;
+    justify-content: space-between;
+    width: 510px;
     padding-bottom: 20px;
     border-bottom: 1px solid #ffffff49;
     &_el {
         color: $gray;
-        font-size: 20px;
+        font-size: 18px;
         margin-right: 20px;
+        &:hover {
+            color: $gray * 0.8;
+        }
     }
     :last-child {
         margin: 0;

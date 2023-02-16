@@ -7,6 +7,7 @@ interface ProfileState {
     pk: number,
     user: ShowUser,
     avatar: string,
+    about: string,
     isLoading: boolean,
     error: string
 }
@@ -15,6 +16,7 @@ const initialState: ProfileState = {
     pk: 0,
     user: {} as ShowUser,
     avatar: "",
+    about: "",
     isLoading: false,
     error: ""
 }
@@ -33,6 +35,7 @@ const profileSlice = createSlice({
             state.pk = action.payload.pk ? action.payload.pk : 0
             state.user = action.payload.user
             state.avatar = `${process.env.REACT_APP_API_DOMAIN}${action.payload.profile_avatar}`
+            state.about = action.payload.aboutUser ? action.payload.aboutUser : ""
         });
         builder.addCase(getMe.rejected, (state) => {
             state.isLoading = false;

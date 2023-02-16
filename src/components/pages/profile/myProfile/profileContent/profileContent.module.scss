@@ -1,43 +1,26 @@
 @import "assets/styles/constants.scss";
 
 .profileContent {
-    margin-top: 40px;
     display: flex;
     flex-direction: column;
-
-    .firstSection {
-        display: flex;
-        justify-content: space-between;
-
-        p {
-            color: $dark-gray;
-        }
-
-        .editWrapper {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-
-            &:hover {
-                opacity: .7;
-            }
-
-            p {
-                color: $green;
-                margin: 2.5px 5px 0 0;
-            }
-        }
-    }
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto 0;
 
     .secondSection {
         display: flex;
-        margin-top: 20px;
+        justify-content: center;
 
         .imgBlock {
             display: flex;
             flex-direction: column;  
-            margin-right: 40px;    
+            margin-right: 40px; 
             
+            p {
+                color: $dark-gray;
+                margin-bottom: 10px;
+            }
+
             img {
                 width: 200px;
                 height: 250px;
@@ -56,7 +39,7 @@
         .infoBlock {
             display: flex;
             flex-direction: column;  
-            width: 100%;
+            margin: 12px 0 0 10px;
             &_el {
                 display: flex;
                 align-items: center;
@@ -88,6 +71,7 @@
 
                 .button {
                     text-decoration: none;
+                    margin-top: 160px;
                     padding: 6px 10px;
                     min-width: 100px;
                     background-color: $green;
@@ -96,7 +80,7 @@
                     box-shadow: 2px 2px 1px #00000040;
                     cursor: pointer;
                     &:hover {
-                        opacity: .7;
+                        background-color: $green * 0.8
                     }
                 }
             }

@@ -2,8 +2,12 @@
 
 .uploadAvatar {
     position: absolute;
-    bottom: 45px;
+    bottom: 20px;
     right: 5px;
+
+    &:hover .uploadAvatar__label  {
+        background-color: $green * 0.8
+    }
 }
 
 .uploadAvatar__label {
@@ -25,9 +29,4 @@
     right: 0;
     bottom: -10px;
     cursor: pointer;
-}
-
-.avatar {
-    position: absolute;
-    left: 200px;
 }

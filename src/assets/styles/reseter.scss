@@ -7,12 +7,24 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     vertical-align: baseline; 
 }
 
+html {
+    height: 100%;
+}
+
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'OpenSans';
+    font-family: -apple-system, BlinkMacSystemFont, 'Lato', 'OpenSans';
+    letter-spacing: 1.2px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #1a1c21;  
+    background-color: #1f2127;  
+    height: 100%;
+    width: 100%; 
+}
+
+#root {
+    height: 100%;
+    width: 100%; 
 }
 
 a {
@@ -23,9 +35,10 @@ li {
     list-style-type: none;
 }
 
-button {
+button, input, input::placeholder, textarea, textarea::placeholder {
     border: none;
-    font-family: -apple-system, BlinkMacSystemFont, 'OpenSans';
+    font-family: -apple-system, BlinkMacSystemFont, 'Lato', 'OpenSans';
+    letter-spacing: 1.2px;
 }
 button:focus {
     border: none;
@@ -34,4 +47,8 @@ button:focus {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
+}
+
+.outlet {
+    min-height: calc(100vh - 80px);
 }
