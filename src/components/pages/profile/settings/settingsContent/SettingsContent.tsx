@@ -22,7 +22,7 @@ export const SettingsContent: React.FC<SettingsType> = ({user, profile_avatar, a
   const email = useInputCheck("", {isEmpty: true, maxLength: 25, isEmail: true})
   const first_name = useInputCheck("", {isEmpty: true, maxLength: 25})
   const last_name = useInputCheck("", {isEmpty: true, maxLength: 25})
-  const textarea = useInputCheck("", {maxLength: 10000})
+  const textarea = useInputCheck(``, {maxLength: 10000})
 
   useEffect(() => {
     if( user.username && user.email && user.first_name && user.last_name ) {
@@ -96,7 +96,7 @@ export const SettingsContent: React.FC<SettingsType> = ({user, profile_avatar, a
         <label className = {styles.label} htmlFor="">About me</label>
         <textarea 
           cols={30} 
-          rows={10}
+          rows={16}
           placeholder = "Tell us a little bit about yourself"
           value = {textarea.value}
           onChange = {(e: React.ChangeEvent<HTMLTextAreaElement>) => textarea.onChange(e)}
