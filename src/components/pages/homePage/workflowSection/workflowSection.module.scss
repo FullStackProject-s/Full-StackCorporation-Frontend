@@ -1,0 +1,182 @@
+@import "assets/styles/constants.scss";
+
+.workflowSection {
+    margin-top: 100px;
+
+    .workflowSectionContent {
+
+        .workflowSection_title {
+            p {
+                font-size: 28px;
+                color: $gray;
+                margin-bottom: 15px;
+
+                span {
+                    color: $green;
+
+                    span {
+                        color: $orange;
+                    }
+                }
+            }
+
+            h3 {
+                font-size: 40px;
+                color: $gray;
+            }
+        }
+
+        .workflowSection_carts {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 70px;
+
+            .workflowSection_carts__cart {
+                flex-basis: 29%;
+                background-color: $blue;
+                border-radius: 10px;
+                color: $gray;
+                box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+                .cartHelmet {
+                    height: 40px;
+                    width: 100%;
+                    border-radius: 10px 10px 0 0;
+                    margin-bottom: 30px;
+                }
+
+                .orangeHelmet {
+                    background-color: $orange;
+                }
+
+                .grayHelmet {
+                    background-color: $gray;
+                }
+
+                .greenHelmet {
+                    background-color: $green;
+                }
+
+                .cart_title {
+                    font-size: 28px;
+                    padding: 0 20px;
+                }
+
+                .cart_text {
+                    width: 80%;
+                    font-size: 18px;
+                    line-height: 28px;
+                    margin: 20px 0 40px;
+                    padding: 0 20px;
+                }
+            }
+
+        }
+
+        @media (max-width: 1200px) {
+
+            .workflowSection_carts {
+
+                .workflowSection_carts__cart {
+
+                    .cart_title {
+                        font-size: 26px;
+                        padding: 0 15px;
+                    }
+
+                    .cart_text {
+                        font-size: 16px;
+                        line-height: 20px;
+                        margin: 20px 0 30px;
+                        padding: 0 15px;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 1000px) {
+
+            .workflowSection_title {
+                p {
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                }
+    
+                h3 {
+                    font-size: 30px;
+                }
+            }
+
+            .workflowSection_carts {
+                margin-top: 40px;
+
+                .workflowSection_carts__cart {
+
+                    .cartHelmet {
+                        margin-bottom: 20px;
+                    }
+
+                    .cart_title {
+                        text-align: center;
+                        font-size: 22px;
+                        padding: 0 15px;
+                    }
+
+                    .cart_text {
+                        width: auto;
+                        text-align: center;
+                        font-size: 12px;
+                        line-height: 20px;
+                        padding: 0 15px;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 668px) {
+
+            .workflowSection_carts {
+                flex-wrap: wrap;
+                justify-content: space-around;
+
+
+                .workflowSection_carts__cart {
+                    flex-basis: 80%;
+                    margin-bottom: 40px;
+
+                    .cartHelmet {
+                        margin-bottom: 20px;
+                    }
+
+                    .cart_title {
+                        text-align: center;
+                        font-size: 22px;
+                        padding: 0 15px;
+                    }
+
+                    .cart_text {
+                        width: auto;
+                        text-align: center;
+                        font-size: 12px;
+                        line-height: 20px;
+                        padding: 0 15px;
+                    }
+                }
+            }
+        }
+    
+
+        @media (max-width: 400px) {
+
+            .workflowSection_carts {
+
+                .workflowSection_carts__cart {
+                    flex-basis: 100%;
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+
+}

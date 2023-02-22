@@ -1,0 +1,141 @@
+@import "assets/styles/constants.scss";
+
+.openSection {
+
+    .openSectionContent {
+        padding: 30px 0;
+        background-image: url('../../../../assets/img/ringsMainScreen.svg');
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 400px;
+
+        .openSectionTextBlock {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            h1 {
+                font-weight: 700;
+                font-size: 80px;
+                line-height: 114px;
+                color: $gray;
+                span {
+                    font-size: 96px;
+                    color: $green;
+
+                    span {
+                        color: $orange;
+                    }
+                }
+            }
+
+            p {
+                font-size: 40px;
+                line-height: 50px;
+                color: $gray;
+                margin: 40px 0;
+            }
+
+            button {
+                width: 300px;
+                background-color: $green;
+                color: $gray;
+                padding: 20px 5px;
+                border-radius: 20px;
+                font-size: 28px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.22);
+                cursor: pointer;
+
+                &:hover  {
+                    background-color: $green * 0.8;
+                }
+            }
+        }
+
+        @media (max-width: 1300px) {
+            padding: 35px 0;
+            background-size: 300px;
+
+            .openSectionTextBlock {
+
+                h1 {
+                    font-size: 52px;
+                    line-height: 68px;
+                    span {
+                        font-size: 60px;
+                    }
+                }
+    
+                p {
+                    font-size: 28px;
+                    line-height: 36px;
+                }
+    
+                button {
+                    width: 250px;
+                    padding: 15px 5px;
+                    border-radius: 16px;
+                    font-size: 24px;
+                }
+            }
+        }
+
+        @media (max-width: 668px) {
+            padding: 10px 0;
+            background-size: 160px;
+
+            .openSectionTextBlock {
+
+                h1 {
+                    font-size: 26px;
+                    line-height: 38px;
+                    span {
+                        font-size: 30px;
+                    }
+                }
+    
+                p {
+                    font-size: 16px;
+                    line-height: 20px;
+                    margin: 20px 0;
+                }
+    
+                button {
+                    width: 120px;
+                    padding: 6px 5px;
+                    font-size: 12px;
+                    border-radius: 10px;
+                }
+            }
+        }
+
+        @media (max-width: 400px) {
+            padding: 20px 0;
+            background-size: 120px;
+
+            .openSectionTextBlock {
+
+                h1 {
+                    font-size: 16px;
+                    line-height: 22px;
+                    span {
+                        font-size: 20px;
+                    }
+                }
+    
+                p {
+                    font-size: 10px;
+                    line-height: 15px;
+                    margin: 15px 0;
+                }
+    
+                button {
+                    width: 80px;
+                    font-size: 10px;
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+
+}
