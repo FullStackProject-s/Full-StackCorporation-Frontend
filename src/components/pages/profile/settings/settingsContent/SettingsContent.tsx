@@ -11,10 +11,13 @@ import { Avatar } from 'components/common/avatar/Avatar'
 import styles from './settingsContent.module.scss'
 import { updateProfile } from 'redux/profile/asyncActions'
 import { SettingsType } from 'types/pages/profile'
+import { useNavigate } from 'react-router-dom'
+import { paths } from 'routing/config'
 
 export const SettingsContent: React.FC<SettingsType> = ({user, profile_avatar, about_user, pk}) => {
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const { error } = useAppSelector(state => state.user)
 
@@ -49,6 +52,8 @@ export const SettingsContent: React.FC<SettingsType> = ({user, profile_avatar, a
       user: user.pk,
       about_user: textarea.value
     }))
+
+    if(!error) navigate(paths.profilePage)
 
   }
 
