@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import UserService from "api/user/userService";
 import axios from "axios";
+import { setUser } from "redux/profile/profileSlice";
 
 import { ShowUser, UpdateUser } from "types/user/user";
 import { setError } from "./userSlice";
@@ -25,6 +26,7 @@ export const updateUser = createAsyncThunk<ShowUser, UpdateUser>(
         try {
             const response: any = await UserService.updateUser(username, email, first_name, last_name, pk)
             thunkAPI.dispatch(setError(""));
+            thunkAPI.dispatch(setUser(response.data));
             return response.data
         } catch (error) {
             console.log(error)

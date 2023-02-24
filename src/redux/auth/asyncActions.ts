@@ -58,10 +58,10 @@ export const login = createAsyncThunk<void, Login>(
 
 export const registration = createAsyncThunk<void, BaseUser>(
     "user/registration", 
-    async ({username, email, first_name, last_name, password}, thunkAPI) => {
+    async ({username, email, first_name, last_name, password, staff_role}, thunkAPI) => {
         thunkAPI.dispatch(setLoading(true)); 
         try {
-            await AuthService.registration(username, email, first_name, last_name, password)
+            await AuthService.registration(username, email, first_name, last_name, password, staff_role)
 
             thunkAPI.dispatch(setLoading(false));
             thunkAPI.dispatch(setError(""));
