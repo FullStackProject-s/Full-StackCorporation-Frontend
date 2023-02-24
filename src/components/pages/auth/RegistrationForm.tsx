@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { useInputCheck } from 'hooks/formValidation/useInputCheck';
 
@@ -7,6 +7,8 @@ import { useAppDispatch, useAppSelector } from 'redux/store';
 
 import { FormButton } from 'components/ui/formButton/FormButton';
 import { InputPassword } from 'components/ui/inputPassword/InputPassword';
+
+import { RoleEnum } from 'constants/role';
 
 import styles from 'components/pages/auth/auth.module.scss'
 
@@ -20,6 +22,8 @@ export const RegistrationForm: React.FC = () => {
     const last_name = useInputCheck("", {isEmpty: true, maxLength: 25})
     const password = useInputCheck("", {isEmpty: true, minLength: 8, maxLength: 25})
     const rePassword = useInputCheck("", {isEmpty: true, isPassword: password.value})
+
+    const [role, setRole] = useState<RoleEnum>(RoleEnum.Administrator)
 
     const { error, message } = useAppSelector(state => state.user)
 
@@ -87,6 +91,48 @@ export const RegistrationForm: React.FC = () => {
         {
           (rePassword.isFocus && rePassword.errorMessage) && <p className = {styles.alertMessage}>{rePassword.errorMessage}</p>
         }
+        <div className = {styles.staffRole}>
+          <p className = {styles.label}>Choose a staff role:</p>
+            <div className = {styles.inputBlocks}>
+              <div className = {styles.role}>
+                <label htmlFor="">{RoleEnum.Administrator}</label>
+                <label className = {styles.inputRole}>
+                  <input 
+                    className = {styles.radio} 
+                    name = "role" 
+                    type = "radio" 
+                    checked = {role === RoleEnum.Administrator}
+                    onClick = {() => setRole(RoleEnum.Administrator)}
+                  />
+                  <span className = {styles.customRadio}></span>  
+                </label>
+              </div>
+              <div className = {styles.role}>
+                <label htmlFor="">{RoleEnum.ProductManager}</label>
+                <label className = {styles.inputRole}>
+                  <input 
+                    className = {styles.radio} 
+                    name = "role" 
+                    type="radio" 
+                    onClick = {() => setRole(RoleEnum.ProductManager)}
+                  />
+                  <span className = {styles.customRadio}></span>  
+                </label>
+              </div>              
+              <div className = {styles.role}>
+                <label htmlFor="">{RoleEnum.Developer}</label>
+                <label className = {styles.inputRole}>
+                  <input 
+                    className = {styles.radio} 
+                    name = "role" 
+                    type="radio" 
+                    onClick = {() => setRole(RoleEnum.Developer)}
+                  />
+                  <span className = {styles.customRadio}></span>  
+                </label>
+              </div>
+            </div>
+        </div>
         <FormButton 
           disabled = {!username.formValid || !email.formValid || !first_name.formValid || !last_name.formValid || !password.formValid || !rePassword.formValid} 
           onClick = {() => dispatch(registration({
@@ -94,7 +140,8 @@ export const RegistrationForm: React.FC = () => {
             email: email.value,
             first_name: first_name.value,
             last_name: last_name.value,
-            password: password.value
+            password: password.value,
+            staff_role: role
           }))}>
           SIGN UP
         </FormButton>

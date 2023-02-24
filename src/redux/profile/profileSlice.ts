@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { ShowUser } from "types/user/user";
 import { getMe, updateProfile, uploadAvatar } from "./asyncActions";
@@ -24,7 +24,11 @@ const initialState: ProfileState = {
 const profileSlice = createSlice({
     name: "profile",
     initialState,
-    reducers: {},
+    reducers: {
+        setUser(state, action: PayloadAction<ShowUser>) {
+            state.user = action.payload;
+        },
+    },
     extraReducers: (builder) => {
         //Get Me
         builder.addCase(getMe.pending, (state) => {
@@ -65,6 +69,6 @@ const profileSlice = createSlice({
     },
 })
 
-export const { } = profileSlice.actions;
+export const {setUser } = profileSlice.actions;
 
 export default profileSlice.reducer;
